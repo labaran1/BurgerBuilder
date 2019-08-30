@@ -39,7 +39,7 @@ case('bread-top'):
         ingredient = <div className={classes.Salad}> </div>;
         break;
 
-    case ('bacom'):
+    case ('bacon'):
         ingredient = <div className={classes.Bacon}> </div>;
         break;
 
