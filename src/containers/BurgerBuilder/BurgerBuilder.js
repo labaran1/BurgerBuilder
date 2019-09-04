@@ -121,9 +121,9 @@ render(){
                     purchaseCancelled={this.purchaseCancelHandler}
                     purchaseContinued={this.purchaseContinueHandler}
                     ingredients={this.state.ingredients}/>
-
-
           </Modal>
+
+          
         <Burger ingredients={this.state.ingredients}/>
         <BuiltControls
         ordered={this.purchaseHandler}
