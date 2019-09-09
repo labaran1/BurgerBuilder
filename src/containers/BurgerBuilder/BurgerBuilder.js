@@ -61,32 +61,41 @@ this.setState({purchasing:false});
 purchaseContinueHandler = ()=>{
 
     // alert('you Continue')
-    this.setState({loading: true});
-    const order ={
-        ingredients: this.state.ingredients,
-        price: this.state.totalPrice,
-        customer: {
-            name: 'Labaran Labs',
+    // this.setState({loading: true});
+    // const order ={
+    //     ingredients: this.state.ingredients,
+    //     price: this.state.totalPrice,
+    //     customer: {
+    //         name: 'Labaran Labs',
 
-            address:{
-            street: 'Meow',
-            zipCode: '724560',
-            country: 'Ghana'
-            },
+    //         address:{
+    //         street: 'Meow',
+    //         zipCode: '724560',
+    //         country: 'Ghana'
+    //         },
 
-            email: 'meow@meow.com'
+    //         email: 'meow@meow.com'
 
-        } ,
-        deliveryMethod:'fastest'
+    //     } ,
+    //     deliveryMethod:'fastest'
         
+    // }
+    // axios.post('/orders.json', order)
+    // .then(response => {
+    //     this.setState({ loading: false, purchasing: false })
+    // })
+    // .catch(error => {
+    //     this.setState({loading:false,  purchasing: false})
+    // });
+    const queryParams =[];
+    for (let i in this.state.ingredients){
+        queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]))
     }
-    axios.post('/orders.json', order)
-    .then(response => {
-        this.setState({ loading: false, purchasing: false })
+    const queryString = queryParams.join('&')
+    this.props.history.push({
+        pathname: '/checkout',
+        search: '?' + queryString
     })
-    .catch(error => {
-        this.setState({loading:false,  purchasing: false})
-    });
 
 }
 
